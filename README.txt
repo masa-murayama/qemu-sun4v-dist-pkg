@@ -2,8 +2,8 @@ Description:
 
 This is a sun4v version of qemu under developping.
 This emulator has a console device and disks.
-Other devices such that network is *not* supported
-yet. The console device is a serial tty.
+Other devices such that network is *not* supported yet. The console
+device is a serial tty. Only uni-processor (single thread) is supported
 
 System configuraion
   Host OS: "Ubuntu 24.04.4 LTS" or later
