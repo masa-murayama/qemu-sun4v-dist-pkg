@@ -1,0 +1,496 @@
+#!/bin/sh
+# This is a shell archive (produced by GNU sharutils 4.15.2).
+# To extract the files from this archive, save it to some FILE, remove
+# everything before the '#!/bin/sh' line above, then type 'sh FILE'.
+#
+lock_dir=_sh108903
+# Made on 2025-01-31 00:34 JST by <mrym@takeshi>.
+# Source directory was '/home/mrym/qemu'.
+#
+# Existing files will *not* be overwritten, unless '-c' is specified.
+#
+# This shar contains:
+# length mode       name
+# ------ ---------- ------------------------------------------
+#    833 -rw-r--r-- adddrv.sh
+#  35048 -rw-r--r-- hsimd
+#    337 -rw-r--r-- adddrv_a.sh
+#    860 -rw-r--r-- adddrv2.sh
+#
+if test "X$1" = "X-c"
+then keep_file=''
+else keep_file=true
+fi
+echo=echo
+save_IFS="${IFS}"
+IFS="${IFS}:"
+gettext_dir=
+locale_dir=
+set_echo=false
+
+for dir in $PATH
+do
+  if test -f $dir/gettext \
+     && ($dir/gettext --version >/dev/null 2>&1)
+  then
+    case `$dir/gettext --version 2>&1 | sed 1q` in
+      *GNU*) gettext_dir=$dir
+      set_echo=true
+      break ;;
+    esac
+  fi
+done
+
+if ${set_echo}
+then
+  set_echo=false
+  for dir in $PATH
+  do
+    if test -f $dir/shar \
+       && ($dir/shar --print-text-domain-dir >/dev/null 2>&1)
+    then
+      locale_dir=`$dir/shar --print-text-domain-dir`
+      set_echo=true
+      break
+    fi
+  done
+
+  if ${set_echo}
+  then
+    TEXTDOMAINDIR=$locale_dir
+    export TEXTDOMAINDIR
+    TEXTDOMAIN=sharutils
+    export TEXTDOMAIN
+    echo="$gettext_dir/gettext -s"
+  fi
+fi
+IFS="$save_IFS"
+if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null
+then if (echo -n test; echo 1,2,3) | grep n >/dev/null
+     then shar_n= shar_c='
+'
+     else shar_n=-n shar_c= ; fi
+else shar_n= shar_c='\c' ; fi
+f=shar-touch.$$
+st1=200112312359.59
+st2=123123592001.59
+st2tr=123123592001.5 # old SysV 14-char limit
+st3=1231235901
+
+if   touch -am -t ${st1} ${f} >/dev/null 2>&1 && \
+     test ! -f ${st1} && test -f ${f}; then
+  shar_touch='touch -am -t $1$2$3$4$5$6.$7 "$8"'
+
+elif touch -am ${st2} ${f} >/dev/null 2>&1 && \
+     test ! -f ${st2} && test ! -f ${st2tr} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$1$2.$7 "$8"'
+
+elif touch -am ${st3} ${f} >/dev/null 2>&1 && \
+     test ! -f ${st3} && test -f ${f}; then
+  shar_touch='touch -am $3$4$5$6$2 "$8"'
+
+else
+  shar_touch=:
+  echo
+  ${echo} 'WARNING: not restoring timestamps.  Consider getting and
+installing GNU '\''touch'\'', distributed in GNU coreutils...'
+  echo
+fi
+rm -f ${st1} ${st2} ${st2tr} ${st3} ${f}
+#
+if test ! -d ${lock_dir} ; then :
+else ${echo} "lock directory ${lock_dir} exists"
+     exit 1
+fi
+if mkdir ${lock_dir}
+then ${echo} "x - created lock directory ${lock_dir}."
+else ${echo} "x - failed to create lock directory ${lock_dir}."
+     exit 1
+fi
+# ============= adddrv.sh ==============
+if test -n "${keep_file}" && test -f 'adddrv.sh'
+then
+${echo} "x - SKIPPING adddrv.sh (file already exists)"
+
+else
+${echo} "x - extracting adddrv.sh bzipped"
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 _sh108903/bzi
+M0EIH.3%!629367\0C'P``$5?@``P?)?OJT\CFXK_[]_P0`'!S2@-$$R%/Q2>
+MU)Z3>E&GI``-/2:>HT?J330:*GE/"(VH]3)H&@`````!S3$P`)@`F``$P`!,
+M$D0IZ:GH35-X@IIH#33U`R-!IH]/5&AC'5JW8?*9F<<5(G4TR+;DH2BD3^@I
+MQRBRY0;PA7/LOS6+6^3H\A;IIQX4_VC!^=J*DI@FS2^W:ZOHN7$5WV*MI:>$
+MJLDX4.TF$%WT+Z?1Z&3COO'MUD@P!W(XS`T'U3@$B1@A`\K+C.2@]B"W@,O2
+M`*;=9?;:&@1S!2R=5EMSZU#8WQV:I7IN>US+Z*[1#@_Y#1'X_2*(Y!HX<D10
+M<D=.D4:8$T<X>E,'GL^7Q]_5U[@XG4IAQXS+-0&Y\)JP&%Z"4$=(L@)V'6Q+
+M$B.?#J@>&Q(484!(#4<YYTS=@<I8-'83<U]_MBR-H=)N"\#)%]]NYK8L:BME
+M;@R+XR\B+%8F;?F;.8+5=+.J5/ZHK,(5[JC>)S"H2E/B!RR#XX$MMI=&HE)D
+MPB5"!5LQA,`E-`-;3+\9:R`XH"I$8F56&4B>\=N`=`;[9BA)4G':N@,868*0
+MP.&:IBH!F*0.Q#;$?@Y"/=@[L/::PS=DL;&@MID4C&U2A),US&PM`JXT[&.$
+;9BB-CD-B4\<E<*`28WUJJ?\7<D4X4)!_$(Q\
+`
+end
+SHAR_EOF
+${echo} bunzipping file adddrv.sh &&
+
+bzip2 -dkc ${lock_dir}/bzi > 'adddrv.sh' && \
+  (set 20 25 01 29 21 32 19 'adddrv.sh'
+   eval "${shar_touch}") && \
+  chmod 0644 'adddrv.sh'
+if test $? -ne 0
+then ${echo} "restore of adddrv.sh failed"
+fi
+test `LC_ALL=C wc -c < 'adddrv.sh'` -ne 833 && \
+  ${echo} "restoration warning:  size of 'adddrv.sh' is not 833"
+fi
+# ============= hsimd ==============
+if test -n "${keep_file}" && test -f 'hsimd'
+then
+${echo} "x - SKIPPING hsimd (file already exists)"
+
+else
+${echo} "x - extracting hsimd bzipped"
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 _sh108903/bzi
+M0EIH.3%!629361]VNQD`,@3_______________________W____________]
+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
+/?-_!?_B[DBG"A(#[M=C(
+`
+end
+SHAR_EOF
+${echo} bunzipping file hsimd &&
+
+bzip2 -dkc ${lock_dir}/bzi > 'hsimd' && \
+  (set 20 25 01 28 01 13 03 'hsimd'
+   eval "${shar_touch}") && \
+  chmod 0644 'hsimd'
+if test $? -ne 0
+then ${echo} "restore of hsimd failed"
+fi
+test `LC_ALL=C wc -c < 'hsimd'` -ne 35048 && \
+  ${echo} "restoration warning:  size of 'hsimd' is not 35048"
+fi
+# ============= adddrv_a.sh ==============
+if test -n "${keep_file}" && test -f 'adddrv_a.sh'
+then
+${echo} "x - SKIPPING adddrv_a.sh (file already exists)"
+
+else
+${echo} "x - extracting adddrv_a.sh bzipped"
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 _sh108903/bzi
+M0EIH.3%!6293609'^UP``!K?@``0?)?'HP8A&X"_[]\@,`#,R*30``-,C0!H
+M&@9`:FF313:GI-I`R#0``-`9(("'E!IH9-!HT!Z:@/Z=9<(N'!`\U$@Q'TN]
+MRP@3TC[D99%#`U.0L#-HO:6%$,$(!6E4%5H#G0=5J^X'U9N=*PVYM.%,EW9K
+M*3.J)%X%$2/)$A$8$+(@1=%A$92-N)Y&^R'%KPW$:EI:;2.A8;HK19+E1$VW
+M(_2WB@0ZAXKO9)2!%3U<&>1]QEB1\<_R\XO0,I1+$'Y3"VNF'%4K8))DH+$)
+G:R%<U4YH,10'`N47L6N4STY`FA37/"?GFBJ:8_Q=R13A0D`9'^UP
+`
+end
+SHAR_EOF
+${echo} bunzipping file adddrv_a.sh &&
+
+bzip2 -dkc ${lock_dir}/bzi > 'adddrv_a.sh' && \
+  (set 20 25 01 30 11 03 45 'adddrv_a.sh'
+   eval "${shar_touch}") && \
+  chmod 0644 'adddrv_a.sh'
+if test $? -ne 0
+then ${echo} "restore of adddrv_a.sh failed"
+fi
+test `LC_ALL=C wc -c < 'adddrv_a.sh'` -ne 337 && \
+  ${echo} "restoration warning:  size of 'adddrv_a.sh' is not 337"
+fi
+# ============= adddrv2.sh ==============
+if test -n "${keep_file}" && test -f 'adddrv2.sh'
+then
+${echo} "x - SKIPPING adddrv2.sh (file already exists)"
+
+else
+${echo} "x - extracting adddrv2.sh bzipped"
+  sed 's/^X//' << 'SHAR_EOF' | uudecode &&
+begin 600 _sh108903/bzi
+M0EIH.3%!62936;2#&EP``$??@``P?)?OJT\CFXK_[]_P0`':<`!$R4])LH\4
+MR-#(/2``&@`]0`YIB8`$P`3``"8``F%3]133)IA--#!&$#31@FFF0VIH!)),
+M$`0PIJ>IH#TCR@T::&AZGHGJ`EM-/OK<8X#1K00N1(((>&$3%3)>4^(!4.YR
+MO!%/\OE/O=9A0A<K8[!O7D_/\G[>H8#%"`D,1RG7)VJ)OS(C!3JU*1,(T2J:
+M]L"YQ`C9H$8-;"IOK_'!NQ&(0`,I1"`71PO:!PF81>V.UQ;!RV>(S1]KQ3AW
+M+]SC,@-KS(17IJ1CGM[GG?/CWQA>FW6.,?HK>:'`[\!S1]_!%*.0<W!R0]!R
+M1OYO1SP)(W(]29'HG\OCQX]NB.!V*2.'"1.(M'827F)K^CZ$-@O>*_?VS?-Y
+MC"OYU:RFZB+$49#19VMM37X'*&#/O).*OUV/86:-YHBX6*+KK-&L>Q$KG7B6
+MT/U(DI)FZLB[6BM60RK2I\4]9(HK\JQNAHE2HQUW#:9'E>E*D\[2MV4`]II1
+MK1GNQ'U&B&)4LNC*HH')4"I>,1*UAC`EU#FVHTKB+K@BF3T9KK1LHG@H#(<C
+M)4ZUDE!8LS18?G`=M<4/7AJ<.=:5HS<R6,VH6AD3>^Q0H@F:UC`L%6X:4T,;
+;7R$\;'(:?3%6)4`]C;54I_\7<D4X4)"T@QI<
+`
+end
+SHAR_EOF
+${echo} bunzipping file adddrv2.sh &&
+
+bzip2 -dkc ${lock_dir}/bzi > 'adddrv2.sh' && \
+  (set 20 25 01 31 00 32 58 'adddrv2.sh'
+   eval "${shar_touch}") && \
+  chmod 0644 'adddrv2.sh'
+if test $? -ne 0
+then ${echo} "restore of adddrv2.sh failed"
+fi
+test `LC_ALL=C wc -c < 'adddrv2.sh'` -ne 860 && \
+  ${echo} "restoration warning:  size of 'adddrv2.sh' is not 860"
+fi
+if rm -fr ${lock_dir}
+then ${echo} "x - removed lock directory ${lock_dir}."
+else ${echo} "x - failed to remove lock directory ${lock_dir}."
+     exit 1
+fi
+exit 0
