@@ -3,7 +3,7 @@ HOW to install Solaris 10 1/13
 0. system configuraion
 
   os: ubuntu "Ubuntu 24.04.4 LTS"
-  added packages:
+  required packages:  cu  (not opencu)
 
 1. Download Solaris11 1/13 (sol-10-u11-ga-sparc-dvd.iso) install iso
   image from Oracle and put it in ./isos directory.
