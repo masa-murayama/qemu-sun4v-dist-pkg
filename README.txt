@@ -1,39 +1,47 @@
-HOW to install Solaris 10 1/13
+Description:
 
-0. system configuraion
+This is a sun4v version of qemu under developping.
+This emulator has a console device and disks.
+Other devices such that network is *not* supported
+yet. The console device is a serial tty.
 
-  os: ubuntu "Ubuntu 24.04.4 LTS"
-  required packages:  cu  (not opencu)
+System configuraion
+  Host OS: "Ubuntu 24.04.4 LTS" or later
+  Required packages:  cu  (not opencu)
+  Memory 3GByete for guest.
+
+How to install Solaris:
 
 1. Download Solaris11 1/13 (sol-10-u11-ga-sparc-dvd.iso) install iso
   image from Oracle and put it in ./isos directory.
 
-2. create a hard disk image at least 10G byte size in vms/vm_test directory,
+2. Create a hard disk image at least 10G byte size in vms/vm_test directory,
    with dd command
    $ cd vms/vm_test
    $ dd if=/dev/zero of=root.img bs=1048576 count=10240
 
 3. Boot qemu
-   $ ./run_vm_test.sh
+   $ run_vm_test.sh
 
 4. Find console device. Type info chardev in qemu terminal.
    (qemu) info chardev
-   serial1: filename=pty:/dev/pts/1
+   serial1: filename=pty:/dev/pts/1   <====
    parallel0: filename=null
    compat_monitor0: filename=stdio
    serial0: filename=file
 
-    Then type below to connect sun4v serial console line.
-   cu -l  /dev/pts/1
+    Then invole cu with the pty device used for qemu-sun4v guest console.
 
-5. Type Return key, then you see ok prompt from open boot.
+   $cu -l  /dev/pts/1
+
+5. Type Return key, then you see ok prompt from openboot.
    ok
 
-6. Boot solaris from the iso image
+6. Boot Solaris from the iso image
 
-   ok boot /virtual-devices@100/disk@3
+   ok boot /virtual-devices/disk@3
 
-   Then, following logs will be showed:
+   Then, following messages will be showed:
 
 	Boot device: /virtual-devices@100/disk@3  File and args: 
 	SunOS Release 5.10 Version Generic_147147-26 64-bit
@@ -47,7 +55,7 @@ HOW to install Solaris 10 1/13
 	Search complete.
 	Discovering additional network configuration...
 
-7.  Solaris installer starts:
+7.  Solaris installer starts automatically.
 
 Select a Language
 
@@ -144,7 +152,7 @@ System identification complete.
 Exiting to shell...
 #
 
-5. Transfer hsimd disk driver package by cu ~p command,
+8. Transfer hsimd disk driver package by ~p subcommand of cu,
   ~p
 # ~[local hostname]p
 File to send:
@@ -157,7 +165,7 @@ Remote file name [hsimd.pkg.shar]:
 ...
 
 
-6. Extract hsimd driver file
+9. Extract hsimd driver file
 
 # sh hsimd.pkg.shar
 
@@ -169,11 +177,11 @@ adddrv2.sh      etc             hsimd.pkg.shar  usr
 ...
 Driver (hsimd) installed.
 
-7. ensure the hsimd driver installed and running.
+10. ensure the hsimd driver installed and running.
 # modinfo | grep hsimd
 182 7b7ee000   2970 323   1  hsimd (hsimd)
 
-8. restart solaris install process
+11. restart solaris install process
 # install-solaris
 
 Then, continue solaris install process.
