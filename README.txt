@@ -185,7 +185,7 @@ Driver (hsimd) installed.
 # install-solaris
 
 Then, continue solaris install process.
-select *no* automatic reboot
+Most important point is to select Manual reboot.
 
 After solaris install, you should add the hsimd driver to installed image.
 
