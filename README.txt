@@ -8,7 +8,7 @@ device is a serial tty. Only uni-processor (single thread) is supported
 System configuraion
   Host OS: "Ubuntu 24.04.4 LTS" or later
   Required packages:  cu  (not opencu)
-  Memory 3GByete for guest.
+  Memory: 3G byte for sparc guest.
 
 How to install Solaris:
 
@@ -30,12 +30,14 @@ How to install Solaris:
    compat_monitor0: filename=stdio
    serial0: filename=file
 
-    Then invole cu with the pty device used for qemu-sun4v guest console.
-
-   $cu -l  /dev/pts/1
+    Then invoke cu with the pty device used for qemu-sun4v guest console.
+   $ cd (the same directory with run_vm_test.sh)
+   $ cu -l /dev/pts/1
 
 5. Type Return key, then you see ok prompt from openboot.
+
    ok
+
 
 6. Boot Solaris from the iso image
 
@@ -144,8 +146,8 @@ TYPE: Esc-2
 TYPE: hostname you want.
 
 
-Continue the install process, then it will fail with the following message
-because para-virtualizaion disk driver (hsimd) not installed yet:
+Continue the install process, then it will fail with the following messages
+because para-virtualization disk driver (hsimd) isn't installed yet:
 
 System identification complete.
 /sbin/install-begin: test: argument expected
@@ -153,7 +155,9 @@ Exiting to shell...
 #
 
 8. Transfer hsimd disk driver package by ~p subcommand of cu,
-  ~p
+
+#  (first of all, type an Enter to avoid previous garbage)
+#  ~p
 # ~[local hostname]p
 File to send:
 
@@ -181,20 +185,29 @@ Driver (hsimd) installed.
 # modinfo | grep hsimd
 182 7b7ee000   2970 323   1  hsimd (hsimd)
 
-11. restart solaris install process
+11. Restart Solaris install process
 # install-solaris
 
 Then, continue solaris install process.
-Most important point is to select Manual reboot.
+Most important point is to select below:
+ Manual CD ejection
+ Manual reboot.
 
-After solaris install, you should add the hsimd driver to installed image.
+After Solaris installed, you should add the hsimd driver to installed root file system
+and rebuild the boot archive.
 
 # sh adddrv_a.sh
-# boot update-archive -R /a
+# bootadm update-archive -R /a
 
 Then reboot the system.
 
 
+Changing sun4v hardware configuration:
+
+Currently memory size is configurabe. Change following parameter.
+
+ file: vms/vm_test/hwconf/localconf
+#define MEMSIZE 0xc0000000		# memory size in hex-decimal
 
 
 
